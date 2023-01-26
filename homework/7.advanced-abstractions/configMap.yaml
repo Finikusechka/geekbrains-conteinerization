@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: prometheus-config
 data:
-  prometheus.yml: |
+  prometheus.yml: | # в какой файл писать
     global:
       scrape_interval: 30s
     scrape_configs:
