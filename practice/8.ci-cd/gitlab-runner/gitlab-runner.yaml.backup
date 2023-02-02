@@ -168,11 +168,23 @@ spec:
       labels:
         app: gitlab-runner
     spec:
+      securityContext:
+        fsGroup: 65533
+        runAsUser: 100
+      terminationGracePeriodSeconds: 3600
       serviceAccountName: gitlab-runner
       containers:
       - name: gitlab-runner
         image: registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v15.3.0
         imagePullPolicy: "IfNotPresent"
+        securityContext:
+          allowPrivilegeEscalation: true
+          capabilities:
+            drop:
+            - ALL
+          privileged: true
+          readOnlyRootFilesystem: false
+          runAsNonRoot: true
         lifecycle:
           preStop:
             exec:
