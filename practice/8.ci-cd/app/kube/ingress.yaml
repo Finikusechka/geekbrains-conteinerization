@@ -17,4 +17,4 @@ spec:
             name: geekbrains
             port:
               number: 8000
-              
+    host: stage     
