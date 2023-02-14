@@ -13,7 +13,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - image: nginx
+        - image: finikusechka/kringinx:0.5
           name: nginx
           ports:
-            - containerPort: 80
+            - containerPort: 8000

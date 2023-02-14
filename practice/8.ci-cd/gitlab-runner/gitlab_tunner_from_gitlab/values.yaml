@@ -21,3 +21,14 @@ runners:
         namespace = "{{.Release.Namespace}}"
         image = "ubuntu:20.04"
         privileged = true
+  privileged: true
+
+
+securityContext:
+        allowPrivilegeEscalation: true
+        capabilities:
+          drop:
+          - ALL
+        privileged: true
+        readOnlyRootFilesystem: false
+        runAsNonRoot: true
